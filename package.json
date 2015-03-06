@@ -1,0 +1,27 @@
+{
+  "name": "react-counter",
+  "version": "1.0.0",
+  "description": "Simple incremental counter with easings",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saebekassebil/react-counter.git"
+  },
+  "keywords": [
+    "counter",
+    "incremental",
+    "animation",
+    "react-component"
+  ],
+  "author": "Jakob Miland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saebekassebil/react-counter/issues"
+  },
+  "homepage": "https://github.com/saebekassebil/react-counter",
+  "dependencies": {
+    "ease-component": "^1.0.0",
+    "raf": "^2.0.4",
+    "react": "^0.12.2"
+  }
+}
