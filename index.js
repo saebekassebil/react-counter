@@ -31,6 +31,7 @@ var Counter = React.createClass({
     var now = Date.now()
     if (now - this.start >= time) this.stop = true;
     var percentage = (now - this.start) / time;
+    percentage = percentage > 1 ? 1 : percentage;
     var easeVal = ease[easing](percentage);
     var val = begin + (end - begin) * easeVal;
 
