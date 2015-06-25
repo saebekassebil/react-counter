@@ -21,7 +21,9 @@
   "homepage": "https://github.com/saebekassebil/react-counter",
   "dependencies": {
     "ease-component": "^1.0.0",
-    "raf": "^2.0.4",
-    "react": "^0.12.2"
+    "raf": "^2.0.4"
+  },
+  "peerDependencies": {
+    "react": "^0.13.1"
   }
 }
