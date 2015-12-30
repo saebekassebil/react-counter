@@ -4,28 +4,42 @@ var ease = require('ease-component');
 
 var Counter = React.createClass({
   getInitialState: function() {
-    return { value: this.props.begin };
+    return { value: 0 };
   },
-
   componentDidMount: function() {
     this.start = Date.now();
-    raf(this.animate);
+    this.setState({value: this.props.begin});
+    raf(this.animate.bind(this, this.props));
   },
+  componentWillReceiveProps(nextProps) {
+    // this.setState({value: nextProps.begin});
+    // this.draw(nextProps)
+    this.stop=false;
+    this.start = Date.now();
+    raf(this.animate.bind(this, nextProps));
+  },
+  shouldComponentUpdate: function(nextProps,nextState){
+    return (
+      (nextState.value !== this.state.value)
+      ||(nextProps.begin !== this.props.begin)
+      ||(nextProps.end !== this.props.end)
+    );
+  },
+  animate: function(props) {
 
-  animate: function() {
     if (this.stop) return;
 
-    raf(this.animate);
-    this.draw()
+    raf(this.animate.bind(this, props));
+    this.draw(props)
   },
 
-  draw: function() {
+  draw: function(props) {
     if (!this.isMounted()) return;
 
-    var time = this.props.time;
-    var begin = this.props.begin;
-    var end = this.props.end;
-    var easing = this.props.easing;
+    var time = props.time;
+    var begin = props.begin;
+    var end = props.end;
+    var easing = props.easing;
 
     easing = easing && easing in ease ? easing : 'outCube';
     var now = Date.now()
