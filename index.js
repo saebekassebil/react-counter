@@ -11,7 +11,7 @@ var Counter = React.createClass({
     this.setState({value: this.props.begin});
     raf(this.animate.bind(this, this.props));
   },
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps: function(nextProps) {
     // this.setState({value: nextProps.begin});
     // this.draw(nextProps)
     this.stop=false;
@@ -26,13 +26,11 @@ var Counter = React.createClass({
     );
   },
   animate: function(props) {
-
     if (this.stop) return;
 
     raf(this.animate.bind(this, props));
     this.draw(props)
   },
-
   draw: function(props) {
     if (!this.isMounted()) return;
 
