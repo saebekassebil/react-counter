@@ -39,7 +39,7 @@ var Counter = React.createClass({
   },
 
   render: function() {
-    return React.DOM.span({ className: 'counter' }, Math.round(this.state.value));
+    return <span className="counter">{Math.round(this.state.value)}</span>;
   }
 });
 
